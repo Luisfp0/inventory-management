@@ -1,33 +1,40 @@
+import Header from './Components/Header/Header'
+import ContainerItems from './Components/ContainerItems/ContainerItems';
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './reset.css';
+import './app.css'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [add, setAdd] = useState(false)
+  const [register, setRegister] = useState(false)
+  const [list, setList] = useState(false)
+
+
+  function clickAdd() {
+    setAdd(true)
+    setRegister(false)
+    setList(false)
+  }
+
+  function clickRegister() {
+    setRegister(true)
+    setAdd(false)
+    setList(false)
+  }
+
+  function clickList() {
+    setList(true)
+    setAdd(false)
+    setRegister(false)
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='section'>
+        <Header clickAdd={clickAdd} clickRegister={clickRegister} clickList={clickList} />
+        <ContainerItems add={add} register={register} list={list} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
