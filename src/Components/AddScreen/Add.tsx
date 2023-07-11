@@ -1,4 +1,15 @@
-function Add(props:any) {
+import { ChangeEvent } from "react"
+
+type Props = {
+  registredProducts: string[]
+  amount: string
+  validity: string
+  handleInputAmountChange: (event:ChangeEvent<HTMLInputElement>) => void
+  handleInputValidityChange: (event:ChangeEvent<HTMLInputElement>) => void
+  onPressAdd: () => void
+}
+
+function Add(props:Props) {
   return (
     <div className='add'>
             <div className='add-list'>
@@ -6,10 +17,11 @@ function Add(props:any) {
               <div className='options'>
                 <span>Produto:</span>
                 <select>
-                  <option value="vermelho">Vermelho</option>
-                  <option value="azul">Azul</option>
-                  <option value="verde">Verde</option>
-                  <option value="amarelo">Amarelo</option>
+                  {
+                    props.registredProducts.map((item) => (
+                      <option>{item}</option>
+                    ))
+                  }
                 </select>
               </div>
               <div className='options'>
