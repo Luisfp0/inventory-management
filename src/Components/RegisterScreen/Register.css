@@ -1,0 +1,11 @@
+.register {
+  background-color: yellow;
+}
+
+.title {
+  margin-bottom: 25px;
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+

@@ -1,16 +1,17 @@
-
+import './Register.css'
 
 function Register(props:any) {
+  console.log(props.productRegistred)
   return (
     <div className='register'>
-      <div className='add-list'>
-        <h1 className='titulo'>Cadastrar novo produto</h1>
+      <div className='question-list'>
+        <h1 className='title'>Cadastrar novo produto</h1>
         <div className='options'>
           <span>Produto:</span>
-          <input type='text' placeholder='Nome do produto' className='input-products' value={props.product} onChange={props.handleInputProductChange}/>
+          <input type='text' placeholder='Nome do produto' className='input-products' value={props.productRegistred} onChange={props.handleInputProductChange}/>
         </div>
-          <button className='addProduct' onClick={props.onPressRegister}>Adicionar</button>
-        </div>
+        <button className='add-product' onClick={props.onPressRegister}>Registrar</button>
+      </div>
     </div>
   )
 }
